@@ -1,0 +1,2 @@
+E:\Projects\LinkedList\Debug\LinkedList.exe
+E:\Projects\LinkedList\Debug\LinkedList.pdb

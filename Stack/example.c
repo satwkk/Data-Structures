@@ -9,12 +9,9 @@ int main(int argc, char** argv) {
 		int num;
 		printf("Enter a number: ");
 		scanf_s("%d", &num);
-		if (push(stack, num) == STACK_OVERFLOW) {
-			printf("***Stack overflow detected.***");
-		}
-		else {
-			printf("Value %d pushed on stack.\n", num);
-		}
-		peek(stack, 4);
+		push(stack, num);
 	}
+
+	free(stack->arr);
+	free(stack);
 }

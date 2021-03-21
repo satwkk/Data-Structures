@@ -3,8 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define STACK_OVERFLOW -1
+#define OVERFLOW_MSG "*** Stack Overflow Detected***"
+#define EMPTY_MSG "***Stack Empty ! Can't pop anything from empty stack"
+#define STACK_FULL 1
 #define STACK_EMPTY -1
+#define SUCCESS_CODE 0
+#define ERROR_CODE -1
 
 typedef struct {
 	int capacity;
@@ -15,6 +19,6 @@ typedef struct {
 int isEmpty(STACK*);
 int isFull(STACK*);
 int pop(STACK*);
-int push(STACK*, int);
+void push(STACK*, int);
 void print_status(int);
 int peek(STACK*, int);

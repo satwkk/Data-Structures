@@ -1,55 +1,35 @@
 #include "stack.h"
 
 int isEmpty(STACK* stack) {
-	if (stack->top == -1) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
+	return stack->top == -1 ? SUCCESS_CODE : ERROR_CODE;
 }
 
 int isFull(STACK* stack) {
-	if (stack->top == stack->capacity - 1) {
-		return 1;
-	}
-	else {
-		return 0;
-	}
+	return stack->top == stack->capacity - 1 ? SUCCESS_CODE : ERROR_CODE;
 }
 
-#ifdef STACK_OVERFLOW
-
-int push(STACK* stack, int data) {
-	if (isFull(stack)) {
-		return STACK_OVERFLOW;
-	}
+#ifdef OVERFLOW_MSG 
+void push(STACK* stack, int data) {
+	if (isFull(stack)) 
+		return OVERFLOW_MSG;
 	else {
-		stack->arr[stack->top] = data;
-		stack->top++;
+		stack->arr[++stack->top] = data;
+		printf("Data %d pushed onto stack successfully.\n", data);
 	}
-	return 1;
 }
 #endif
 
-void print_status(int d)
-{
-	printf("Data %d pushed on stack.\n", d);
-}
-
-#ifdef STACK_EMPTY 
-
+#if defined STACK_EMPTY && defined EMPTY_MSG
 int pop(STACK* stack) {
 	if (isEmpty(stack)) {
-	return STACK_EMPTY;
+		printf("%s\n", EMPTY_MSG);
+		return STACK_EMPTY;
 	}
 	else {
-		int val = stack->arr[stack->top];
-		stack->top--;
+		int val = stack->arr[stack->top--];
 		return val;
 	}
 }
-
 #endif
 
 int peek(STACK* ptr, int i){

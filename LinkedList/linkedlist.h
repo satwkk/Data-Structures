@@ -4,9 +4,8 @@
 #include <stdlib.h>
 
 #define NODE struct Node*
-#ifdef NODE
 #define MALLOC_NODE (NODE)malloc(sizeof(struct Node))
-#endif
+
 
 struct Node {
 	int data;

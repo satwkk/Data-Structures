@@ -10,8 +10,9 @@ int isFull(STACK* stack) {
 
 #ifdef OVERFLOW_MSG 
 void push(STACK* stack, int data) {
-	if (isFull(stack)) 
+	if (isFull(stack)) {
 		return OVERFLOW_MSG;
+	}
 	else {
 		stack->arr[++stack->top] = data;
 		printf("Data %d pushed onto stack successfully.\n", data);
